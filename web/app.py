@@ -23,11 +23,11 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
+        return jsonify({'error': 'No file part.'}), 400
 
     file = request.files['file']
     if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+        return jsonify({'error': 'No selected file.'}), 400
 
     try:
         connection = mysql.connector.connect(**db_config)
@@ -42,7 +42,7 @@ def upload_file():
         connection.commit()
         connection.close()
 
-        return jsonify({'message': 'File uploaded successfully'}), 201
+        return jsonify({'message': 'File uploaded successfully.'}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -61,7 +61,7 @@ def get_files():
         return jsonify(files), 200
     except Exception as e:
         print(f"Error fetching files: {str(e)}")
-        return jsonify({'error': 'Failed to fetch files'}), 500
+        return jsonify({'error': 'Failed to fetch files.'}), 500
 
 # Route for downloading a file
 @app.route('/download/<int:file_id>')
@@ -74,7 +74,7 @@ def download_file(file_id):
         file_data = cursor.fetchone()
 
         if not file_data:
-            return jsonify({'error': 'File not found'}), 404
+            return jsonify({'error': 'File not found.'}), 404
 
         file_name = file_data[0]
         file_path = os.path.join('/app/uploads', str(file_id))
