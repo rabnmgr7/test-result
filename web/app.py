@@ -8,7 +8,7 @@ app = Flask(__name__)
 db_config = {
     'user': 'rabin',
     'password': 'Rabin@123',
-    'host': '10.0.1.10',  # Update to MySQL server IP or hostname
+    'host': 'mysql-db',  # Update to MySQL server IP or hostname
     'database': 'file_storage_db',
     'port': 3306,  # Update to MySQL server port
     'auth_plugin': 'mysql_native_password'  # Use the default authentication plugin
