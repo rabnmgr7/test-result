@@ -5,7 +5,7 @@
     <title>DRAWER🔐</title>
 </head>
 <body>
-    <h2>DRAWER🔐</h2>
+    <h2>RESULT🔐</h2>
     <p1>Keep your files safe with a key🔑.</p1>
     <!-- File Upload Form -->
     <form id="uploadForm" enctype="multipart/form-data">
@@ -43,14 +43,23 @@
 
         function fetchFilesList() {
             fetch('/files')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch file list');
+                }
+                return response.json();
+            })
             .then(files => {
                 var fileList = document.getElementById('fileList');
                 fileList.innerHTML = ''; // Clear previous list
 
                 files.forEach(file => {
                     var li = document.createElement('li');
-                    li.textContent = file.name;
+                    // Create download link with file name and download route
+                    var downloadLink = document.createElement('a'); // Create download link
+                    downloadLink.href = `/download/${file.id}`; // New download route
+                    downloadLink.text = file.name;
+                    li.appendChild(downloadLink);
                     fileList.appendChild(li);
                 });
             })

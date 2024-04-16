@@ -1,6 +1,6 @@
-import os
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, Response
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
@@ -30,21 +30,15 @@ def upload_file():
         return jsonify({'error': 'No selected file'}), 400
 
     try:
-        # Establish a connection to the MySQL database
         connection = mysql.connector.connect(**db_config)
         cursor = connection.cursor()
 
-        # Insert file information into the 'files' table
         cursor.execute('INSERT INTO files (name) VALUES (%s)', (file.filename,))
         file_id = cursor.lastrowid
 
-        # Save the file to the uploads directory with the file_id as filename
         file_path = os.path.join('/app/uploads', str(file_id))
         file.save(file_path)
-        # Insert file information into the 'files' table
-        # You'll need to modify this part to interact with your MySQL database
-        # Use the file information to insert into your MySQL database
-        # Commit changes and close the connection
+
         connection.commit()
         connection.close()
 
@@ -56,22 +50,44 @@ def upload_file():
 @app.route('/files')
 def get_files():
     try:
-        # Establish a connection to the MySQL database
         connection = mysql.connector.connect(**db_config)
         cursor = connection.cursor()
 
-        # Retrieve file information from the 'files' table
         cursor.execute('SELECT id, name FROM files')
         files = [{'id': row[0], 'name': row[1]} for row in cursor.fetchall()]
 
-        # Close the connection
         connection.close()
 
         return jsonify(files), 200
     except Exception as e:
-        # If there's an error fetching files (e.g., table doesn't exist or query fails), return an empty list
         print(f"Error fetching files: {str(e)}")
-        return jsonify([]), 200  # Return an empty list instead of raising an error
+        return jsonify({'error': 'Failed to fetch files'}), 500
+
+# Route for downloading a file
+@app.route('/download/<int:file_id>')
+def download_file(file_id):
+    try:
+        connection = mysql.connector.connect(**db_config)
+        cursor = connection.cursor()
+
+        cursor.execute('SELECT name FROM files WHERE id = %s', (file_id,))
+        file_data = cursor.fetchone()
+
+        if not file_data:
+            return jsonify({'error': 'File not found'}), 404
+
+        file_name = file_data[0]
+        file_path = os.path.join('/app/uploads', str(file_id))
+
+        with open(file_path, 'rb') as f:
+            file_content = f.read()
+
+        response = Response(file_content, mimetype='application/octet-stream')
+        response.headers['Content-Disposition'] = f'attachment; filename="{file_name}"'
+
+        return response
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
