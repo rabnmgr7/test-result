@@ -59,7 +59,8 @@ def get_files():
         files = [{'id': row[0], 'name': row[1]} for row in cursor.fetchall()]
 
         connection.close()
-        return jsonify(files), 200
+        return render_template('files.html', files=files)
+        #return jsonify(files), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
