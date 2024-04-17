@@ -15,22 +15,11 @@
                 if (!response.ok) {
                     throw new Error('Failed to fetch file list');
                 }
-                return response.json();
+                return response.text(); // Parse response as text (HTML)
             })
-            .then(files => {
+            .then(html => {
                 var fileList = document.getElementById('fileList');
-                fileList.innerHTML = ''; // Clear previous list
-
-                files.forEach(file => {
-                    var li = document.createElement('li');
-                    // Create download link with file name and download route
-                    var downloadLink = document.createElement('a'); // Create download link
-                    downloadLink.href = `/download/${file.id}`; // New download route
-                    // downloadLink.setAttribute('download', file.name);
-                    downloadLink.textContent = file.name;
-                    li.appendChild(downloadLink);
-                    fileList.appendChild(li);
-                });
+                fileList.innerHTML = html; // Directly update HTML content
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -42,24 +31,24 @@
         fetchFilesList();
 
         function uploadFile() {
-        var formData = new FormData();
-        var fileInput = document.getElementById('fileInput').files[0];
-        formData.append('file', fileInput);
+            var formData = new FormData();
+            var fileInput = document.getElementById('fileInput').files[0];
+            formData.append('file', fileInput);
 
-        fetch('/upload', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            fetchFilesList(); // Refresh file list after upload
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('File upload failed.');
-        });
-    }
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                fetchFilesList(); // Refresh file list after upload
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('File upload failed.');
+            });
+        }
     </script>
 </body>
 </html>
