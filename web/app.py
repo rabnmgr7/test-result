@@ -59,9 +59,8 @@ def get_files():
         connection.close()
         # Render files.html and pass 'files' data to the template
         return render_template('files.html', files=files)
-    except Exception as e:
-        print(f"Error fetching files: {str(e)}")
-        return jsonify({'error': 'Failed to fetch files.'}), 500
+    except mysql.connector.Error as err:
+        return jsonify({'error': f"MySQL Error: {err.msg}"}), 500
 
 # Route for downloading a file
 @app.route('/download/<int:file_id>')
