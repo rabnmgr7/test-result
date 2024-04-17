@@ -20,10 +20,20 @@
             .then(html => {
                 var fileList = document.getElementById('fileList');
                 fileList.innerHTML = html; // Directly update HTML content
+
+                // Attach event listeners to each download link
+                var downloadLinks = document.querySelectorAll('#fileList a');
+                downloadLinks.forEach(link => {
+                    link.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        var fileId = link.getAttribute('data-file-id');
+                        downloadFile(fileId);
+                    });
+                });
             })
             .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to fetch file list.');
+                console.error('Error fetching file list:', error);
+                alert('Failed to fetch file list. Please try again.');
             });
         }
 
@@ -45,8 +55,30 @@
                 fetchFilesList(); // Refresh file list after upload
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Error uploading file:', error);
                 alert('File upload failed.');
+            });
+        }
+
+        function downloadFile(fileId) {
+            fetch(`/download/${fileId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to download file');
+                }
+                return response.blob(); // Get file data as Blob
+            })
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = ''; // You can set a custom download filename here
+                a.click();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => {
+                console.error('Error downloading file:', error);
+                alert('Failed to download file. Please try again.');
             });
         }
     </script>

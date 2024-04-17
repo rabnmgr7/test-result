@@ -62,6 +62,7 @@ def get_files():
 
         # Render files.html template with the list of files
         return render_template('files.html', files=files)
+        # return jsonify(files), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
