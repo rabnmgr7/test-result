@@ -19,7 +19,7 @@
     <h3>Uploads:</h3>
     <ul id="fileList"></ul>
 
-    <!-- Link to view uploaded files-->
+    <!-- Link to view uploaded files -->
     <a href="/files">View Uploaded Files</a>
 
     <!-- JavaScript for File Upload -->
@@ -58,9 +58,8 @@
 
                 files.forEach(file => {
                     var li = document.createElement('li');
-                    // Create download link with file name and download route
-                    var downloadLink = document.createElement('a'); // Create download link
-                    downloadLink.href = `/download/${file.id}`; // New download route
+                    var downloadLink = document.createElement('a');
+                    downloadLink.href = `/download/${file.id}`;
                     downloadLink.text = file.name;
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
