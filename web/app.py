@@ -33,7 +33,7 @@ def upload_file():
         connection = mysql.connector.connect(**db_config)
         cursor = connection.cursor()
 
-        cursor.execute('INSERT INTO files (name) VALUES (%s)', (file.filename,))
+        cursor.execute('INSERT INTO files (name, content) VALUES (%s, %s)', (file.filename, file.read()))
         file_id = cursor.lastrowid
 
         file_path = os.path.join('/app/uploads', str(file_id))
