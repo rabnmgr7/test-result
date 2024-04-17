@@ -48,7 +48,7 @@ def upload_file():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Route for getting list of files
+# Route for rendering files.html and displaying list of files
 @app.route('/files')
 def get_files():
     try:
@@ -59,9 +59,9 @@ def get_files():
         files = [{'id': row[0], 'name': row[1]} for row in cursor.fetchall()]
 
         connection.close()
-        
-        # Return JSON response with the list of files
-        return jsonify(files), 200
+
+        # Render files.html template with the list of files
+        return render_template('files.html', files=files)
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
