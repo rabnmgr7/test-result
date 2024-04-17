@@ -19,17 +19,7 @@
             })
             .then(html => {
                 var fileList = document.getElementById('fileList');
-                fileList.innerHTML = html; // Directly update HTML content
-
-                // Attach event listeners to each download link
-                var downloadLinks = document.querySelectorAll('#fileList a');
-                downloadLinks.forEach(link => {
-                    link.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        var fileId = link.getAttribute('data-file-id');
-                        downloadFile(fileId);
-                    });
-                });
+                fileList.innerHTML = html; // Update HTML content directly
             })
             .catch(error => {
                 console.error('Error fetching file list:', error);
@@ -39,26 +29,6 @@
 
         // Initial fetch of file list when page loads
         fetchFilesList();
-
-        function uploadFile() {
-            var formData = new FormData();
-            var fileInput = document.getElementById('fileInput').files[0];
-            formData.append('file', fileInput);
-
-            fetch('/upload', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                fetchFilesList(); // Refresh file list after upload
-            })
-            .catch(error => {
-                console.error('Error uploading file:', error);
-                alert('File upload failed.');
-            });
-        }
 
         function downloadFile(fileId) {
             fetch(`/download/${fileId}`)
