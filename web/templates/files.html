@@ -25,9 +25,34 @@
                     var li = document.createElement('li');
                     // Create download link with file name and download route
                     var downloadLink = document.createElement('a'); // Create download link
-                    downloadLink.href = `/download/${file.id}`; // New download route
-                    downloadLink.setAttribute('download', file.name);
+                    // downloadLink.href = `/download/${file.id}`; // New download route
+                    // downloadLink.setAttribute('download', file.name);
                     downloadLink.textContent = file.name;
+                    downloadLink.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent default link behavior
+
+                        // Fetch the download route for this file
+                        fetch(`/download/${file.id}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Failed to download file');
+                            }
+                            return response.blob(); // Get the response as a Blob
+                        })
+                        .then(blob => {
+                            // Create a temporary anchor element to trigger the download
+                            var url = URL.createObjectURL(blob);
+                            var a = document.createElement('a');
+                            a.href = url;
+                            a.download = file.name; // Set the filename for the download
+                            a.click(); // Programmatically click the anchor element
+                            URL.revokeObjectURL(url); // Release the URL object
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Failed to download file.');
+                        });
+                    });
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
                 });
