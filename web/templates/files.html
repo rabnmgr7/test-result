@@ -2,48 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DRAWER🔐</title>
+    <title>Uploaded Files</title>
 </head>
 <body>
-    <h2>RESULT🔐</h2>
-    <p1>Keep your files safe with a key🔑.</p1>
-    <!-- File Upload Form -->
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" name="fileInput" id="fileInput">
-        <button type="button" onclick="uploadFile()">Upload</button>
-    </form>
-
-    <hr>
-
-    <!-- List of Uploaded Files -->
-    <h3>Uploads:</h3>
+    <h2>List of Uploaded Files</h2>
     <ul id="fileList"></ul>
 
-    <!-- Link to view uploaded files-->
-    <a href="/files">View Uploaded Files</a>
-
-    <!-- JavaScript for File Upload -->
     <script>
-        function uploadFile() {
-            var formData = new FormData();
-            var fileInput = document.getElementById('fileInput').files[0];
-            formData.append('file', fileInput);
-
-            fetch('/upload', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                fetchFilesList(); // Refresh file list after upload
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('File upload failed.');
-            });
-        }
-
         function fetchFilesList() {
             fetch('/files')
             .then(response => {

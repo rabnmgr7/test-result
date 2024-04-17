@@ -57,8 +57,8 @@ def get_files():
         files = [{'id': row[0], 'name': row[1]} for row in cursor.fetchall()]
 
         connection.close()
-
-        return jsonify(files), 200
+        # Render files.html and pass 'files' data to the template
+        return render_template('files.html', files=files)
     except Exception as e:
         print(f"Error fetching files: {str(e)}")
         return jsonify({'error': 'Failed to fetch files.'}), 500
