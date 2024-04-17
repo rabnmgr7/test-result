@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, Response
+from flask import Flask, request, jsonify, render_template, send_file
 import mysql.connector
 import os
 
@@ -33,10 +33,12 @@ def upload_file():
         connection = mysql.connector.connect(**db_config)
         cursor = connection.cursor()
 
-        cursor.execute('INSERT INTO files (name, content) VALUES (%s, %s)', (file.filename, file.read()))
+        # Insert file metadata into database
+        cursor.execute('INSERT INTO files (name) VALUES (%s)', (file.filename,))
         file_id = cursor.lastrowid
 
-        file_path = os.path.join('/app/uploads', str(file_id))
+        # Save file to uploads directory
+        file_path = os.path.join('uploads', str(file_id))
         file.save(file_path)
 
         connection.commit()
@@ -57,20 +59,9 @@ def get_files():
         files = [{'id': row[0], 'name': row[1]} for row in cursor.fetchall()]
 
         connection.close()
-        # Render files.html and pass 'files' data to the template
-        return render_template('files.html', files=files)
-    except mysql.connector.Error as err:
-        # Log the error for debugging
-        app.logger.error(f"MySQL Error: {err.msg}")
-
-        # Return JSON response with error message
-        return jsonify({'error': f"MySQL Error: {err.msg}"}), 500
+        return jsonify(files), 200
     except Exception as e:
-        # Log any unexpected exception for debugging
-        app.logger.error(f"Unexpected Error: {str(e)}")
-
-        # Return JSON response with error message
-        return jsonify({'error': 'Failed to fetch file list.'}), 500
+        return jsonify({'error': str(e)}), 500
 
 # Route for downloading a file
 @app.route('/download/<int:file_id>')
@@ -86,15 +77,9 @@ def download_file(file_id):
             return jsonify({'error': 'File not found.'}), 404
 
         file_name = file_data[0]
-        file_path = os.path.join('/app/uploads', str(file_id))
+        file_path = os.path.join('uploads', str(file_id))
 
-        with open(file_path, 'rb') as f:
-            file_content = f.read()
-
-        response = Response(file_content, mimetype='application/octet-stream')
-        response.headers['Content-Disposition'] = f'attachment; filename="{file_name}"'
-
-        return response
+        return send_file(file_path, attachment_filename=file_name)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
