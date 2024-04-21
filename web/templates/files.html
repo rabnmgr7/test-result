@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uploaded Files</title>
+</head>
+<body>
+    <h2>List of Uploaded Files</h2>
+    <ul id="fileList"></ul>
+
+    <script>
+        function fetchFilesList() {
+            fetch('/files')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch file list');
+                }
+                return response.json();
+            })
+            .then(files => {
+                var fileList = document.getElementById('fileList');
+                fileList.innerHTML = ''; // Clear previous list
+
+                files.forEach(file => {
+                    var li = document.createElement('li');
+                    // Create download link with file name and download route
+                    var downloadLink = document.createElement('a'); // Create download link
+                    downloadLink.href = `/download/${file.id}`; // New download route
+                    downloadLink.text = file.name;
+                    li.appendChild(downloadLink);
+                    fileList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to fetch file list.');
+            });
+        }
+
+        // Initial fetch of file list when page loads
+        fetchFilesList();
+    </script>
+</body>
+</html>

@@ -5,8 +5,8 @@
     <title>DRAWER🔐</title>
 </head>
 <body>
-    <h2>RESULT🔐</h2>
-    <p1>Keep your files safe with a key🔑.</p1>
+    <h2>DRAWER🔐</h2>
+    <p>Keep your files safe with a key🔑.</p>
     <!-- File Upload Form -->
     <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" name="fileInput" id="fileInput">
@@ -18,6 +18,9 @@
     <!-- List of Uploaded Files -->
     <h3>Uploads:</h3>
     <ul id="fileList"></ul>
+
+    <!-- Link to view uploaded files -->
+    <a href="/files">View Uploaded Files</a>
 
     <!-- JavaScript for File Upload -->
     <script>
@@ -55,9 +58,8 @@
 
                 files.forEach(file => {
                     var li = document.createElement('li');
-                    // Create download link with file name and download route
-                    var downloadLink = document.createElement('a'); // Create download link
-                    downloadLink.href = `/download/${file.id}`; // New download route
+                    var downloadLink = document.createElement('a');
+                    downloadLink.href = `/download/${file.id}`;
                     downloadLink.text = file.name;
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
