@@ -13,10 +13,10 @@ WORKDIR /app
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         default-libmysqlclient-dev \
-	pkg-config \
-	gcc \
-	build-essential \
-	libmariadb-dev-compat \
+        pkg-config \
+        gcc \
+        build-essential \
+        libmariadb-dev-compat \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -30,5 +30,5 @@ COPY . /app/
 # Expose the port the app runs on
 EXPOSE 5000
 
-# Command to run the application
-CMD ["python", "app.py"]
+# Command to run the application with Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
