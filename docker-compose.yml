@@ -37,7 +37,7 @@ services:
     networks:
       - server_net
     depends_on:
-      - flask_app
+      - flask-app
 
 networks:
   server_net:
