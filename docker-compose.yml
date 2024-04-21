@@ -4,8 +4,6 @@ services:
   flask-app:
     build: ./web
     restart: always
-    ports:
-      - "8085:5000"
     environment:
       - MYSQL_DATABASE_HOST=mysql-db
     depends_on:
@@ -28,6 +26,18 @@ services:
     networks:
       server_net:
         ipv4_address: 10.0.1.10
+  
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "8085:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - server_net
+    depends_on:
+      - flask-app
 
 networks:
   server_net:
