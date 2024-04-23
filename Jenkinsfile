@@ -27,7 +27,7 @@ pipeline {
                 docker tag test-result-mysql-db:latest rabnmgr7/test-result-mysql-db:$BUILD_NUMBER || true
                 docker tag test-result-mysql-db:latest rabnmgr7/test-result-mysql-db:latest || true
                 docker tag test-result-nginx:latest rabnmgr7/test-result-nginx:$BUILD_NUMBER || true
-                docker tag test-result-nginx:latest rabnmgr7/test-result-nginx:$BUILD_NUMBER || true
+                docker tag test-result-nginx:latest rabnmgr7/test-result-nginx:latest || true
                 docker push rabnmgr7/test-result-nginx:$BUILD_NUMBER
                 docker push rabnmgr7/test-result-nginx:latest
                 docker push rabnmgr7/test-result-flask-app:latest
