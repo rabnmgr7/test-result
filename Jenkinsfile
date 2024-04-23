@@ -22,9 +22,9 @@ pipeline {
         stage('RegistryPush') {
             steps {
                 sh '''echo "Tagging and Pushing Images..."
-                docker tag rabnmgr7/test-result-flask-app:latest rabnmgr7/test-result-flask-app:$BUILD_NUMBER || true
-                docker tag rabnmgr7/test-result-mysql-db:latest rabnmgr7/test-result-mysql-db:$BUILD_NUMBER || true
-                docker tag rabnmgr7/test-result-nginx:latest rabnmgr7/test-result-nginx:$BUILD_NUMBER || true
+                docker tag test-result-flask-app:latest rabnmgr7/test-result-flask-app:$BUILD_NUMBER || true
+                docker tag test-result-mysql-db:latest rabnmgr7/test-result-mysql-db:$BUILD_NUMBER || true
+                docker tag test-result-nginx:latest rabnmgr7/test-result-nginx:$BUILD_NUMBER || true
                 docker push rabnmgr7/test-result-nginx:$BUILD_NUMBER
                 docker push rabnmgr7/test-result-nginx:latest
                 docker push rabnmgr7/test-result-flask-app:latest
