@@ -28,7 +28,7 @@ services:
         ipv4_address: 10.0.1.10
   
   nginx:
-    image: nginx:latest
+    build: ./nginx
     restart: always
     ports:
       - "8085:80"
