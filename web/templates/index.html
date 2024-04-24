@@ -45,39 +45,68 @@
         footer {
             position: absolute;
             bottom: 0;
-            z-index: -1;
             width: 100%;
-            display: block;
-            background-color: #f8f9fa;
-            unicode-bidi: isolate;
-            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
         }
-        .footer-content {
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-links .widget {
+            margin-bottom: 20px;
+        }
+
+        .footer-links h3 {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            margin-top: 20px;
         }
-        .footer-content p {
+
+        .footer-bottom p {
             margin: 0;
             font-size: 14px;
-            color: #333;
         }
-        .social-media {
-            list-style: none;
+
+        .social-media ul {
             padding: 0;
+            list-style: none;
             display: flex;
             align-items: center;
         }
-        .social-media li {
+
+        .social-media ul li {
             margin-right: 10px;
         }
-        .social-media li a {
-            color: #333;
+
+        .social-media ul li a {
+            color: #fff;
             font-size: 20px;
         }
+
     </style>  
 </head>
 <body>
@@ -98,128 +127,39 @@
     <!-- Link to view uploaded files -->
     <a href="/files">Next</a>
     <footer>
-        <div class="top-footer-section">
-            <div class="container">
-                <div class="footer-links">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-3">
-                            <!-- 1 -->
-                            <section class="widget nav_menu-2 widget_nav_menu"><h3>THE UNIVERSITY</h3><ul id="menu-the-university" class="menu"><li class="nav-item menu-item menu-workplaces"><a class="nav-link" href="https://pu.edu.np/workplaces/">Workplaces</a></li>
-    <li class="nav-item menu-item menu-infrastructure"><a class="nav-link" href="https://pu.edu.np/infrastructure/">Infrastructure</a></li>
-    <li class="nav-item menu-item menu-statistical-data"><a class="nav-link" href="https://pu.edu.np">Statistical Data</a></li>
-    <li class="nav-item menu-item menu-photo-gallery"><a class="nav-link" href="https://pu.edu.np">Photo Gallery</a></li>
-    <li class="nav-item menu-item menu-former-officials"><a class="nav-link" href="https://pu.edu.np/former-officials/">Former officials</a></li>
-    <li class="nav-item menu-item menu-pokhara-university-act"><a class="nav-link" href="https://pu.edu.np/pokhara-university-act/">Pokhara University Act</a></li>
-    <li class="nav-item menu-item menu-pu-rules"><a class="nav-link" href="https://pu.edu.np/wp-content/uploads/2022/05/PU-Rules-All.pdf">PU Rules</a></li>
-    </ul></section><section class="widget nav_menu-3 widget_nav_menu"><h3>Elected bodies</h3><ul id="menu-elected-bodies" class="menu"><li class="nav-item menu-item menu-pokhara-university-teachers-association"><a class="nav-link" href="https://pu.edu.np/puta/">Pokhara  University  Teachers  Association</a></li>
-    <li class="nav-item menu-item menu-free-students-unions"><a class="nav-link" href="https://pu.edu.np/fsu/">Free  Students  Unions</a></li>
-    </ul></section><section class="widget_text widget custom_html-4 widget_custom_html"><h3>Contact Us</h3><div class="textwidget custom-html-widget">Pokhara University 
-    <br />
-    Pokhara Metropolitan City-30
-    <br />
-    Lekhnath, Kaski, Nepal
-    <strong>Telephone:</strong>+977-61-504046
-    <br />
-    <strong>Post Box: </strong>427
-    <br />
-    <strong> E-mail:</strong> info@pu.edu.np</div></section>                    </div>
-                        <div class="col-sm-6 col-md-3">
-                            <!-- 2 -->
-                            <section class="widget_text widget custom_html-5 widget_custom_html"><h3>Central Office Inquiry</h3><div class="textwidget custom-html-widget">Reception: +977-61-504046<br />
-    Research Centre: +977-61-504046<br />
-    Curriculum Centre: +977-61-504026<br />
-    International Relations: +977-61-504048<br />
-    Planning Division: +977-61-504034<br />
-    Procurement Section: +977-61-504039<br /></div></section><section class="widget nav_menu-4 widget_nav_menu"><h3>Downloads</h3><ul id="menu-downloads" class="menu"><li class="nav-item menu-item menu-application-form-for-post-of-lecture-school-of-business"><a class="nav-link" href="https://pu.edu.np/application-form-for-post-of-lecture-school-of-business-2/">Application Form for Post of Lecture (School of Business)</a></li>
-    <li class="nav-item menu-item %e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a4%b6%e0%a4%be%e0%a4%b8%e0%a4%a8%e0%a4%bf%e0%a4%95-%e0%a4%aa%e0%a4%a6%e0%a4%95%e0%a4%be-%e0%a4%b2%e0%a4%be%e0%a4%97%e0%a4%bf-%e0%a4%86%e0%a4%b5%e0%a5%87%e0%a4%a6 menu-%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a4%b6%e0%a4%be%e0%a4%b8%e0%a4%a8%e0%a4%bf%e0%a4%95-%e0%a4%aa%e0%a4%a6%e0%a4%95%e0%a4%be-%e0%a4%b2%e0%a4%be%e0%a4%97%e0%a4%bf-%e0%a4%86%e0%a4%b5%e0%a5%87%e0%a4%a6"><a class="nav-link" href="https://pu.edu.np/wp-content/uploads/2022/03/प्रशासनिक-पदका-लागि-आवेदन-फाराम.pdf">प्रशासनिक पदका लागि आवेदन फाराम</a></li>
-    <li class="nav-item menu-item %e0%a4%b6%e0%a5%88%e0%a4%95%e0%a5%8d%e0%a4%b7%e0%a4%bf%e0%a4%95-%e0%a4%aa%e0%a4%a6%e0%a4%95%e0%a4%be-%e0%a4%b2%e0%a4%be%e0%a4%97%e0%a4%bf-%e0%a4%86%e0%a4%b5%e0%a5%87%e0%a4%a6%e0%a4%a8-%e0%a4%ab menu-%e0%a4%b6%e0%a5%88%e0%a4%95%e0%a5%8d%e0%a4%b7%e0%a4%bf%e0%a4%95-%e0%a4%aa%e0%a4%a6%e0%a4%95%e0%a4%be-%e0%a4%b2%e0%a4%be%e0%a4%97%e0%a4%bf-%e0%a4%86%e0%a4%b5%e0%a5%87%e0%a4%a6%e0%a4%a8-%e0%a4%ab"><a class="nav-link" href="https://pu.edu.np/wp-content/uploads/2022/03/शैक्षिक-पदका-लागि-आवेदन-फाराम.pdf">शैक्षिक पदका लागि आवेदन फाराम</a></li>
-    <li class="nav-item menu-item menu-staffs-procedure"><a class="nav-link" target="_blank" rel="noopener" href="https://pu.edu.np/wp-content/uploads/2022/08/Staffs-Karyabidhi-2079.pdf">Staff&#8217;s Procedure</a></li>
-    <li class="nav-item menu-item menu-teachers-procedure"><a class="nav-link" target="_blank" rel="noopener" href="https://pu.edu.np/wp-content/uploads/2022/08/Teachers-Karyabidhi-2079.pdf">Teacher&#8217;s Procedure</a></li>
-    <li class="nav-item menu-item menu-anusuchi-forms"><a class="nav-link" href="https://pu.edu.np/anusuchi-forms/">Anusuchi Forms</a></li>
-    <li class="nav-item menu-item menu-application-forms"><a class="nav-link" href="https://pu.edu.np/application-forms/">Application Forms</a></li>
-    <li class="nav-item menu-item menu-annual-report"><a class="nav-link" href="https://pu.edu.np/annual-report/">Annual Report</a></li>
-    <li class="nav-item menu-item menu-journals"><a class="nav-link" href="https://pu.edu.np/journals-2/">Journals</a></li>
-    <li class="nav-item menu-item menu-newsletter"><a class="nav-link" href="https://pu.edu.np/newsletter/">Newsletter</a></li>
-    <li class="nav-item menu-item menu-curriculum-syllabus"><a class="nav-link" href="https://pu.edu.np/curriculum-syllabus/">Curriculum-Syllabus</a></li>
-    <li class="nav-item menu-item %e0%a4%ad%e0%a4%bf%e0%a4%a4%e0%a5%8d%e0%a4%a4%e0%a5%87%e0%a4%aa%e0%a4%be%e0%a4%a4%e0%a5%8d%e0%a4%b0%e0%a5%8b menu-vittepatro-%e0%a4%ad%e0%a4%bf%e0%a4%a4%e0%a5%8d%e0%a4%a4%e0%a5%87%e0%a4%aa%e0%a4%be%e0%a4%a4%e0%a5%8d%e0%a4%b0%e0%a5%8b"><a class="nav-link" href="https://pu.edu.np/vittepatro-%e0%a4%ad%e0%a4%bf%e0%a4%a4%e0%a5%8d%e0%a4%a4%e0%a5%87%e0%a4%aa%e0%a4%be%e0%a4%a4%e0%a5%8d%e0%a4%b0%e0%a5%8b/">Vittepatro (भित्तेपात्रो)</a></li>
-    </ul></section>                    </div>
-                        <div class="col-sm-6 col-md-3">
-                             <!-- 3 -->
-                            <section class="widget_text widget custom_html-6 widget_custom_html"><h3>Faculty Inquiry</h3><div class="textwidget custom-html-widget">Management Studies: +977-61-504076<br />
-    Science and Technology: +977-61-504075<br />
-    Health Sciences: +977-61-504072<br />
-    Humanities and Social Sciences: +977-61-504078<br /></div></section><section class="widget_text widget custom_html-8 widget_custom_html"><h3>School Inquiry</h3><div class="textwidget custom-html-widget">School of Business: +977-61-504147<br />
-    School of Engineering: +977-61-504141<br />
-    School of Health and Allied Sciences: +977-61-504036<br />
-    School of Development and Social Engineering: +977-61-504038<br /></div></section><section class="widget nav_menu-10 widget_nav_menu"><h3>Information Portal</h3><ul id="menu-information-portal" class="menu"><li class="nav-item menu-item %e0%a4%b8%e0%a5%82%e0%a4%9a%e0%a4%a8%e0%a4%be-%e0%a4%aa%e0%a5%8b%e0%a4%b0%e0%a5%8d%e0%a4%9f%e0%a4%b2 menu-%e0%a4%b8%e0%a5%82%e0%a4%9a%e0%a4%a8%e0%a4%be-%e0%a4%aa%e0%a5%8b%e0%a4%b0%e0%a5%8d%e0%a4%9f%e0%a4%b2"><a class="nav-link" href="https://pu.edu.np/information-portal/">सूचना पोर्टल</a></li>
-    </ul></section>                    </div>
-                        <div class="col-sm-6 col-md-3">
-                             <!-- 4 -->
-                            <section class="widget_text widget custom_html-7 widget_custom_html"><h3>Office of the Controller of Examination</h3><div class="textwidget custom-html-widget">PU Examination : +977-61-504146<br />: +977-61-504086<br /></div></section><section class="widget_text widget custom_html-9 widget_custom_html"><h3>PU Service Commision Inquiry</h3><div class="textwidget custom-html-widget">PU Service Commisson: +977-61-504047<br /></div></section><section class="widget_text widget custom_html-10 widget_custom_html"><h3>PU Central Library Inquiry</h3><div class="textwidget custom-html-widget">PU Central Library: +977-61-504137<br /></div></section>                    </div>
-                    </div>
+        <div class="container">
+            <div class="footer-links">
+                <div class="widget">
+                    <h3>THE UNIVERSITY</h3>
+                    <ul>
+                        <li><a href="#">Workplaces</a></li>
+                        <li><a href="#">Infrastructure</a></li>
+                        <!-- Add more links as needed -->
+                    </ul>
                 </div>
-    
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="footer-links">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <!-- 5 -->
-                                    <section class="widget nav_menu-7 widget_nav_menu"><h3>Related Links</h3><ul id="menu-related-links" class="menu"><li class="nav-item menu-item menu-universities-in-nepal"><a class="nav-link" href="https://pu.edu.np/university-in-nepal/">Universities in Nepal</a></li>
-    <li class="nav-item menu-item menu-university-like-institutions"><a class="nav-link" href="https://pu.edu.np/university-like-institutions/">University Like Institutions</a></li>
-    <li class="nav-item menu-item menu-ugc"><a class="nav-link" target="_blank" rel="noopener" href="http://www.ugcnepal.edu.np/">UGC</a></li>
-    <li class="nav-item menu-item menu-ppmo"><a class="nav-link" target="_blank" rel="noopener" href="https://ppmo.gov.np/">PPMO</a></li>
-    <li class="nav-item menu-item menu-opmcm"><a class="nav-link" target="_blank" rel="noopener" href="https://www.opmcm.gov.np/">OPMCM</a></li>
-    <li class="nav-item menu-item menu-moe"><a class="nav-link" target="_blank" rel="noopener" href="https://moe.gov.np/">MOE</a></li>
-    </ul></section>                            </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <!-- 6 -->
-                                    <section class="widget media_image-3 widget_media_image"><a href="https://pu.edu.np/wp-content/uploads/2021/06/nepal-300x169.png"><img width="300" height="169" src="https://pu.edu.np/wp-content/uploads/2021/06/nepal-300x169.png" class="image wp-image-29017  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" loading="lazy" srcset="https://pu.edu.np/wp-content/uploads/2021/06/nepal-300x169.png 300w, https://pu.edu.np/wp-content/uploads/2021/06/nepal-768x432.png 768w, https://pu.edu.np/wp-content/uploads/2021/06/nepal.png 960w" sizes="(max-width: 300px) 100vw, 300px" /></a></section>                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="location-map">
-                             <!-- 7 -->
-                                                </div>
-                    </div>
+                <div class="widget">
+                    <h3>Elected bodies</h3>
+                    <ul>
+                        <li><a href="#">Pokhara University Teachers Association</a></li>
+                        <li><a href="#">Free Students Unions</a></li>
+                        <!-- Add more links as needed -->
+                    </ul>
                 </div>
+                <!-- Add more widget sections for different categories -->
             </div>
-        </div>
-        <div class="bottom-footer-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <p>
-                            Copyright © 2024 | Pokhara University.                        
-                        </p>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="social-media">
-                            <ul>
-                                                            
-                                    
-                                    <li><a href="https://www.facebook.com/Pokhara-University-1399596076998729/" target="_blank"><i class="ion ion-logo-facebook"></i></a></li>
-    
-                                
-                                    
-                                    <li><a href="https://twitter.com/pukaski" target="_blank"><i class="ion ion-logo-twitter"></i></a></li>
-    
-                                
-                                    
-                                    <li><a href="#" target="_blank"><i class="ion ion-logo-google"></i></a></li>
-    
-                                
-                                    
-                                    <li><a href="#" target="_blank"><i class="ion ion-logo-youtube"></i></a></li>
-    
-                                                        </ul>
-                        </div>
-                    </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 | Pokhara University</p>
+                <div class="social-media">
+                    <ul>
+                        <li><a href="https://www.facebook.com/Pokhara-University-1399596076998729/" target="_blank"><i class="ion ion-logo-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/pukaski" target="_blank"><i class="ion ion-logo-twitter"></i></a></li>
+                        <!-- Add more social media icons and links -->
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
+    
     <!-- JavaScript for File Upload -->
     <script>
         function uploadFile() {
