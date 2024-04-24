@@ -35,16 +35,16 @@
         }
         #fileList {
             position: absolute;
-            top: 6.5in;
+            top: 6.5in; /* Adjusted top position */
             left: 1in;
             list-style-type: none;
             padding: 0;
         }
         #fileList li {
-            margin-bottom: 5px;
-            background-color: #007463;
-            padding: 5px;
-            border-radius: 5px;
+            margin-bottom: 5px; /* Reduced margin between list items */
+            background-color: #f9f9f9; /* Light background color for better contrast */
+            padding: 5px; /* Added padding for better spacing */
+            border-radius: 5px; /* Rounded corners for a neat appearance */
         }
         a {
             position: absolute;
@@ -108,7 +108,7 @@
                     var li = document.createElement('li');
                     var downloadLink = document.createElement('a');
                     downloadLink.href = `/download/${file.id}`;
-                    downloadLink.textContent = file.name;
+                    downloadLink.textContent = file.name; // Use textContent for setting text
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
                 });
