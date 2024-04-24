@@ -35,13 +35,16 @@
         }
         #fileList {
             position: absolute;
-            top: 6in;
+            top: 6.5in;
             left: 1in;
             list-style-type: none;
             padding: 0;
         }
         #fileList li {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            background-color: #007463;
+            padding: 5px;
+            border-radius: 5px;
         }
         a {
             position: absolute;
@@ -105,7 +108,7 @@
                     var li = document.createElement('li');
                     var downloadLink = document.createElement('a');
                     downloadLink.href = `/download/${file.id}`;
-                    downloadLink.text = file.name;
+                    downloadLink.textContent = file.name;
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
                 });
