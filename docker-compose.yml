@@ -34,7 +34,7 @@ services:
       - "8085:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/static/:/app/static/images/
+      - ./nginx/static/images/:/app/static/images/
     networks:
       - server_net
     depends_on:
