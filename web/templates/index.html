@@ -70,6 +70,10 @@
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 10px;
+            list-style-type: disc;
+        }
+        #fileList li::marker {
+            color: blue;
         }
     </style>
 </head>
@@ -83,7 +87,7 @@
     <!-- File Upload Form -->
     <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" name="fileInput" id="fileInput">
-        <button type="button" onclick="uploadFile()">Copyright©</button>
+        <button type="button" onclick="uploadFile()">Copyright© to Pokhara University Only.</button>
     </form>
 
     <hr>
