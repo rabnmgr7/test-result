@@ -2,27 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DRAWER🔐</title>
+    <title>An Official Site of Pokhara University</title>
+    <link rel="icon" type="image/png" href="/static/images/logo_pu.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #logo {
+            position: absolute;
+            top: 2in;
+            left: 2in;
+            width: 3in;
+            height: 0.8in;
+        }
+        #uploadForm {
+            position: absolute;
+            top: 15in;
+            left: 5in;
+        }
+        p {
+            position: absolute;
+            top: 5in;
+            left: 2.5in;
+        }
+        h3 {
+            position: absolute;
+            top: 5.5in;
+            left: 2.5in;
+        }
+        #fileList {
+            position: absolute;
+            top: 210px;
+            left: 150px;
+            width: 400px; /* Adjust width as needed */
+        }
+        #fileList li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        a {
+            position: absolute;
+            top: 5.5in;
+            left: 3in;
+            display: block; /* Make links block-level for better spacing */
+            color: blue; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
 </head>
 <body>
-    <h2>DRAWER🔐</h2>
-    <p>Keep your files safe with a key🔑.</p>
+    <!-- Logo -->
+    <img id="logo" src="/static/images/pu_logo_new.png" alt="Pokhara University Logo">
+
+    <!-- Path -->
+    <p>PU Notice > Examination > Results > Result-BE-Computer-Spring-2023</p>
+
     <!-- File Upload Form -->
     <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" name="fileInput" id="fileInput">
-        <button type="button" onclick="uploadFile()">Upload</button>
+        <button type="button" onclick="uploadFile()">Result-BE-Computer-Spring-2023</button>
     </form>
 
     <hr>
 
     <!-- List of Uploaded Files -->
-    <h3>Uploads:</h3>
+    <h3>April 28, 2024:</h3>
     <ul id="fileList"></ul>
 
     <!-- Link to view uploaded files -->
-    <a href="/files">View Uploaded Files</a>
+    <a href="/files">Next</a>
 
-    <!-- JavaScript for File Upload -->
+    <!-- JavaScript for File Upload and Fetching File List -->
     <script>
         function uploadFile() {
             var formData = new FormData();
@@ -60,7 +118,7 @@
                     var li = document.createElement('li');
                     var downloadLink = document.createElement('a');
                     downloadLink.href = `/download/${file.id}`;
-                    downloadLink.text = file.name;
+                    downloadLink.textContent = file.name;
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
                 });
@@ -71,7 +129,7 @@
             });
         }
 
-        // Initial fetch of file list when page loads
+        // Fetch file list when page loads
         fetchFilesList();
     </script>
 </body>

@@ -17,6 +17,7 @@ RUN apt-get update \
         gcc \
         build-essential \
         libmariadb-dev-compat \
+        curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
