@@ -106,7 +106,7 @@
                     var li = document.createElement('li');
                     var downloadLink = document.createElement('a');
                     downloadLink.href = `/download/${file.id}`;
-                    downloadLink.textContent = file.name;
+                    downloadLink.text = file.name;
                     li.appendChild(downloadLink);
                     fileList.appendChild(li);
                 });
