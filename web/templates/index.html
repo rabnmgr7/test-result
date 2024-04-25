@@ -73,7 +73,19 @@
             list-style-type: disc;
         }
         #fileList li::marker {
-            color: blue;
+            color: white;
+        }
+        #dropdownContainer {
+            position: absolute;
+            top: 0.25in; /* Adjust the top position as needed */
+            left: 2in;
+        }
+        /* Styling for dropdowns */
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -81,6 +93,29 @@
     <!-- Logo -->
     <img id="logo" src="/static/images/pu_logo_new.png" alt="Pokhara University Logo">
     <img id="banner" src="/static/images/banner-pu-scaled.jpg" alt="Pokhara University Banner">
+    <!-- Dropdown Container -->
+    <div id="dropdownContainer">
+        <select id="dropdown1">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <!-- Add more options as needed -->
+        </select>
+        <select id="dropdown2">
+            <option value="optionA">Option A</option>
+            <option value="optionB">Option B</option>
+            <!-- Add more options as needed -->
+        </select>
+        <select id="dropdown3">
+            <option value="year2022">2022</option>
+            <option value="year2023">2023</option>
+            <!-- Add more options as needed -->
+        </select>
+        <select id="dropdown4">
+            <option value="semesterSpring">Spring</option>
+            <option value="semesterFall">Fall</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
     <!-- Path -->
     <p>PU Notice > Examination > Results > Result-BE-Computer-Spring-2023</p>
 
