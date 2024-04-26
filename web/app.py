@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, send_file
 import mysql.connector
 import os
+import time
 
 app = Flask(__name__)
 
@@ -17,6 +18,7 @@ db_config = {
 # Route for rendering index.html template
 @app.route('/')
 def index():
+    time.sleep(10)
     return render_template('index.html')
 
 # Route for handling file upload
