@@ -14,4 +14,4 @@ CREATE TABLE IF NOT EXISTS files (
 CREATE INDEX idx_files_name ON files (name);
 
 -- Insert sample data
-INSERT INTO files (name, size) VALUES ('example.txt', 1024), ('document.pdf', 2048);
+INSERT INTO files (name, size) VALUES ('Bachelor-All-Programs-Spring-2023-Result-Notice.xls', 1024), ('Bachelor-All-Programs-Spring-2023-Rechecking-Retotaling-Notice.xls', 2048);
