@@ -1,5 +1,5 @@
 # Use the official MySQL image as base
-FROM mysql:latest
+FROM mysql:5.7
 RUN { \
         echo '[mysqld]'; \
         echo 'default_authentication_plugin=mysql_native_password'; \
