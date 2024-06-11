@@ -18,7 +18,6 @@ db_config = {
 # Route for rendering index.html template
 @app.route('/')
 def index():
-    time.sleep(10)
     return render_template('index.html')
 
 # Route for handling file upload
